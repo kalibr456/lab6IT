@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Shop {
-    // Класс SoldItem для представления проданного товара
     static class SoldItem {
         private String name;
         private double price;
@@ -26,18 +25,16 @@ public class Shop {
     }
 
     static class SalesManager {
-        private LinkedList<SoldItem> soldItems; // Список проданных товаров
+        private LinkedList<SoldItem> soldItems;
 
         public SalesManager() {
             soldItems = new LinkedList<>();
         }
 
-        // Добавление проданного товара
         public void addSoldItem(String name, double price) {
             soldItems.add(new SoldItem(name, price));
         }
 
-        // Вывод списка проданных товаров
         public void displaySoldItems() {
             if (soldItems.isEmpty()) {
                 System.out.println("Нет проданных товаров.");
@@ -49,7 +46,6 @@ public class Shop {
             }
         }
 
-        // Подсчет общей суммы продаж
         public double calculateTotalSales() {
             double total = 0;
             for (SoldItem item : soldItems) {
@@ -58,7 +54,6 @@ public class Shop {
             return total;
         }
 
-        // Определение наиболее популярного товара
         public String getMostPopularItem() {
             if (soldItems.isEmpty()) {
                 return "Нет проданных товаров.";
@@ -82,7 +77,6 @@ public class Shop {
         }
     }
 
-    // Основной метод программы
     public static void main(String[] args) {
         SalesManager manager = new SalesManager();
 
