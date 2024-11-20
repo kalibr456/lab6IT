@@ -1,47 +1,43 @@
 public class Main {
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>(10); // Создаем стек на 10 элементов
+        Stack<Integer> stack = new Stack<>(10); 
 
         stack.push(1);
         stack.push(2);
         stack.push(3);
 
-        System.out.println(stack.pop());  // Вывод: 3
+        System.out.println(stack.pop());  
 
-        System.out.println(stack.peek()); // Вывод: 2
-
+        System.out.println(stack.peek()); 
         stack.push(4);
 
-        System.out.println(stack.pop());  // Вывод: 4
+        System.out.println(stack.pop());  
     }
     static class Stack<T> {
-        private T[] data; // Массив для хранения элементов стека
-        private int size; // Текущий размер стека
+        private T[] data; 
+        private int size; 
 
         public Stack(int capacity) {
-            data = (T[]) new Object[capacity]; // Инициализация массива
-            size = 0; // Стек изначально пуст
+            data = (T[]) new Object[capacity]; 
+            size = 0; 
         }
 
-        // Метод для добавления элемента в стек
         public void push(T element) {
             if (size == data.length) {
                 throw new StackOverflowError("Стек переполнен");
             }
-            data[size++] = element; // Добавляем элемент и увеличиваем размер
+            data[size++] = element; 
         }
 
-        // Метод для удаления элемента из стека
         public T pop() {
             if (size == 0) {
                 throw new IllegalStateException("Стек пуст");
             }
-            T element = data[--size]; // Уменьшаем размер и извлекаем верхний элемент
-            data[size] = null; // Удаляем ссылку на объект для избежания утечки памяти
+            T element = data[--size]; 
+            data[size] = null;
             return element;
         }
 
-        // Метод для получения верхнего элемента стека без его удаления
         public T peek() {
             if (size == 0) {
                 throw new IllegalStateException("Стек пуст");
@@ -49,12 +45,9 @@ public class Main {
             return data[size - 1];
         }
 
-        // Метод для проверки, пуст ли стек
         public boolean isEmpty() {
             return size == 0;
         }
-
-        // Метод для получения текущего размера стека
         public int getSize() {
             return size;
         }
